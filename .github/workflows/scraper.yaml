@@ -33,6 +33,8 @@ jobs:
           python scrapers.py
       -
         name: "Commit and push if it changed"
+        with:
+          token: ${{secrets.PAT_TOKEN}}
         run: |-
             git config user.name "Automated"
             git config user.email "actions@users.noreply.github.com"
@@ -40,5 +42,3 @@ jobs:
             timestamp=$(date -u)
             git commit -m "Latest data: ${timestamp}" || exit 0
             git push
-        with:
-            token: ${{secrets.PAT_TOKEN}}
