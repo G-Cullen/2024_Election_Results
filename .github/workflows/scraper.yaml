@@ -42,6 +42,4 @@ jobs:
           git add -A
           timestamp=$(date -u +"%Y-%m-%d %H:%M:%S")
           git commit -m "Latest data: ${timestamp}" || exit 0
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/G-Cullen/2024_Election_Results.git main
